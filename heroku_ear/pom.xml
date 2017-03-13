@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>si.domen.heroku</groupId>
+    <artifactId>heroku</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>heroku_ear</artifactId>
+  <packaging>ear</packaging>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>si.domen.heroku</groupId>
+  		<artifactId>heroku_web</artifactId>
+  		<type>war</type>
+  	</dependency>
+  </dependencies>
+  
+  <build>
+	<plugins>
+	    <plugin>
+	        <artifactId>maven-ear-plugin</artifactId>
+	        <version>2.10.1</version>
+	        <configuration>
+	            <defaultLibBundleDir>lib/</defaultLibBundleDir>
+	            <version>1.3</version>
+	            <modules>
+	                <webModule>
+	                    <groupId>si.domen.heroku</groupId>
+	                    <artifactId>heroku_web</artifactId>
+	                    <contextRoot>/heroku</contextRoot>
+	                </webModule>
+	            </modules>
+	        </configuration>
+	    </plugin>
+	</plugins>
+	</build>
+  
+</project>
